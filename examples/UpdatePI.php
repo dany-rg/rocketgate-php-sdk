@@ -91,6 +91,7 @@ if ($service->PerformPurchase($request, $response)) {
   print "Test Purchase succeeded\n";
   print "CUST: " . $cust_id . "\n";
   print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
 
 	// Update Personal Information
 	//
