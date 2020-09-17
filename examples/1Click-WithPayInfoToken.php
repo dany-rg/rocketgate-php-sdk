@@ -101,6 +101,7 @@ $service->SetTestMode(TRUE);
 if ($service->PerformPurchase($request, $response)) {
   print "Initial Purchase succeeded\n";
   print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
 	
     //
     //      Get the PayInfo Token so we can run the next transaction without needing to store the credit card #.
@@ -127,6 +128,7 @@ if ($service->PerformPurchase($request, $response)) {
 	  if ($service->PerformPurchase($request, $response)) {
         print "PayInfo Purchase succeeded\n";
         print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+        print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
 	  } else {
  	    print "PayInfo Purchase failed\n";
 	  } 
@@ -134,6 +136,7 @@ if ($service->PerformPurchase($request, $response)) {
 } else {
   print "Initial Purchase failed\n";
   print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
   print "Response Code: " .
 	$response->Get(GatewayResponse::RESPONSE_CODE()) . "\n";
   print "Reason Code: " .
