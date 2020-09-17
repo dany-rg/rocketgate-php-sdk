@@ -108,6 +108,7 @@ if ($service->PerformPurchase($request, $response)) {
   print "AVS: " . $response->Get(GatewayResponse::AVS_RESPONSE()) . "\n";
   print "CVV2: " . $response->Get(GatewayResponse::CVV2_CODE()) . "\n";
   print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
   print "Account: " .
 	$response->Get(GatewayResponse::MERCHANT_ACCOUNT()) . "\n";
   print "Scrub: " .
@@ -140,6 +141,7 @@ if ($service->PerformPurchase($request, $response)) {
 } else {
   print "Purchase failed\n";
   print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
   print "Response Code: " .
 	$response->Get(GatewayResponse::RESPONSE_CODE()) . "\n";
   print "Reason Code: " .
