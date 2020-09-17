@@ -99,6 +99,7 @@ $service->SetTestMode(TRUE);
 if ($service->PerformPurchase($request, $response)) {
   print "1. Non-recurring join succeeded\n";
   print "  GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "  Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
 
 	// UPGRADE MEMBERSHIP
 	//
@@ -122,6 +123,7 @@ if ($service->PerformPurchase($request, $response)) {
 	  if ($service->PerformRebillUpdate($request, $response)) {
         print "2. Update to Recurring succeeded\n";
         print "  GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+        print "  Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
         print "  Rebill Date: " . $response->Get(GatewayResponse::REBILL_DATE()) . "\n";
         print "  Cancel Date: " . $response->Get(GatewayResponse::REBILL_END_DATE()) . "\n";
 
@@ -134,6 +136,7 @@ if ($service->PerformPurchase($request, $response)) {
 } else {
   print "1. Non-recurring join failed\n";
   print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
   print "Response Code: " .  $response->Get(GatewayResponse::RESPONSE_CODE()) . "\n";
   print "Reason Code: " .  $response->Get(GatewayResponse::REASON_CODE()) . "\n";
   print "Exception: " .  $response->Get(GatewayResponse::EXCEPTION()) . "\n";
