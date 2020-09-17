@@ -113,6 +113,7 @@ if ($service->PerformAuthOnly($request, $response)) {
     print "AVS: " . $response->Get(GatewayResponse::AVS_RESPONSE()) . "\n";
     print "CVV2: " . $response->Get(GatewayResponse::CVV2_CODE()) . "\n";
     print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+    print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
     print "Account: " .  $response->Get(GatewayResponse::MERCHANT_ACCOUNT()) . "\n";
     print "Scrub: " .  $response->Get(GatewayResponse::SCRUB_RESULTS()) . "\n";
 print_r($response);
@@ -120,6 +121,7 @@ print_r($response);
   } else {
     print "\nLookup failed\n";
     print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+    print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
     print "Reason Code: " .  $response->Get(GatewayResponse::REASON_CODE()) . "\n";
     print "Exception: " .  $response->Get(GatewayResponse::EXCEPTION()) . "\n";
   }
@@ -127,6 +129,7 @@ print_r($response);
 } else {
   print "\nAuth-Only failed\n";
   print "GUID: " . $response->Get(GatewayResponse::TRANSACT_ID()) . "\n";
+  print "Transaction time: " . $response->Get(GatewayResponse::TRANSACTION_TIME()) . "\n";
   print "Response Code: " .  $response->Get(GatewayResponse::RESPONSE_CODE()) . "\n";
   print "Reason Code: " .  $response->Get(GatewayResponse::REASON_CODE()) . "\n";
   print "Exception: " .  $response->Get(GatewayResponse::EXCEPTION()) . "\n";
